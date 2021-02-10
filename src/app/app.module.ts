@@ -7,12 +7,14 @@ import {FooterComponent} from './components/footer/footer.component';
 import {AppRoutingModule} from './app-routing.module';
 import {RouterModule} from '@angular/router';
 import {HttpClientModule} from '@angular/common/http';
+import {HomeComponent} from './components/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

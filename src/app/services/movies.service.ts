@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {environment} from '../../environments/environment';
 import {Observable} from 'rxjs';
 import {IMovie} from '../models/IMovie';
+import {IRes} from '../models/IRes';
 
 const enum endpoint {
   latest = 'movie/latest',
@@ -10,7 +11,7 @@ const enum endpoint {
   popular = 'movie/popular',
   top_rated = 'movie/top_rated',
   upcoming = 'movie/upcoming',
-  trending = 'movie/all/week',
+  trending = 'trending/all/week?',
   originals = 'discover/tv'
 }
 
@@ -61,6 +62,12 @@ export class MoviesService {
   }
   getOriginalsMovie(): Observable<IMovie[]> {
     return this.httpClient.get<IMovie[]>(`${this.URL}${endpoint.originals}`, {
+      params: {
+        api_key: this.api_key
+      }
+    });
+  }getTrendingMovie(): Observable<IRes> {
+    return this.httpClient.get<IRes>(`${this.URL}${endpoint.trending}`, {
       params: {
         api_key: this.api_key
       }
