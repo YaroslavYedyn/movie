@@ -1,1 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
+*{
+  margin: 0;
+  padding: 0;
+}
+body{
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+}
+.btn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 80px;
+  height: 30px;
+  background:#e41a1a ;
+  color: #fffffe;
+  border: none;
+  border-radius: 3px;
+}
+.btn:hover{
+  background: #dc3545;
+}

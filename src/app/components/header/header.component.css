@@ -1,0 +1,41 @@
+header{
+  position: fixed;
+  color: #fffffe;
+  margin: 0 auto;
+  width: 100vw;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  border-bottom: 2px solid #fffffe;
+}
+a{
+  cursor: pointer;
+}
+a:hover{
+  color: #d90909;
+}
+.logo{
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 600;
+}
+.sub-logo{
+  color: #e41a1a;
+
+}
+nav{
+  font-size: 16px;
+  font-weight: 400;
+  width: 45%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container{
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
