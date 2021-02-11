@@ -2,6 +2,7 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {LatestComponent} from './components/latest/latest.component';
 import {RouterModule, Routes} from '@angular/router';
+import {NgbCarouselModule} from '@ng-bootstrap/ng-bootstrap';
 
 
 const routes: Routes = [
@@ -14,7 +15,8 @@ const routes: Routes = [
   declarations: [LatestComponent],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    NgbCarouselModule
   ]
 })
 export class LatestModule {

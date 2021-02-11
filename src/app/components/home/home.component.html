@@ -1,16 +1,24 @@
-<div class="container">
+<div [classList]="['container_home']">
   <div class="header">
     <div class="header__banner"
          [ngStyle]="{
       'background-image' : 'linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.3)), url('+headerBGUrl+')'
       }">
       <div class='banner__title'>
-      <h1>{{trending&& trending.results[1].title}}</h1>
-      <div class="header__button">
-        <button class="banner_btn_play">Play</button>
-        <button class="banner_btn_info">More Info</button>
-      </div>
+        <h1>{{trending&&trending.results[1].title}}</h1>
+        <div class="header__button">
+          <button class="banner_btn_play">Play</button>
+          <button class="banner_btn_info">More Info</button>
+        </div>
       </div>
     </div>
+  </div>
+  <div class="body">
+    <app-slider [title]="'Trending'" [movie]="trending&&trending.results"></app-slider>
+    <app-slider [title]="'Now Playing'" [movie]="nowPlaying"></app-slider>
+    <app-slider [title]="'Up Coming'" [movie]="upComing&&upComing.results"></app-slider>
+    <app-slider [title]="'Top Rated'" [movie]="topRated&&topRated.results"></app-slider>
+    <app-slider [title]="'Popular'" [movie]="popular&&popular.results"></app-slider>
+    <app-slider [title]="'Originals'" [movie]="originals&&originals.results"></app-slider>
   </div>
 </div>

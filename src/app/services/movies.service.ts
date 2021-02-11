@@ -32,41 +32,48 @@ export class MoviesService {
       }
     });
   }
-  getNowPlayingMovie(): Observable<IMovie> {
-    return this.httpClient.get<IMovie>(`${this.URL}${endpoint.now_playing}`, {
+
+  getNowPlayingMovie(): Observable<IRes> {
+    return this.httpClient.get<IRes>(`${this.URL}${endpoint.now_playing}`, {
       params: {
         api_key: this.api_key
       }
     });
   }
-  getPopularMovie(): Observable<IMovie[]> {
-    return this.httpClient.get<IMovie[]>(`${this.URL}${endpoint.popular}`, {
+
+  getPopularMovie(): Observable<IRes> {
+    return this.httpClient.get<IRes>(`${this.URL}${endpoint.popular}`, {
       params: {
         api_key: this.api_key
       }
     });
   }
-  getTopRatedMovie(): Observable<IMovie[]> {
-    return this.httpClient.get<IMovie[]>(`${this.URL}${endpoint.top_rated}`, {
+
+  getTopRatedMovie(): Observable<IRes> {
+    return this.httpClient.get<IRes>(`${this.URL}${endpoint.top_rated}`, {
       params: {
         api_key: this.api_key
       }
     });
   }
-  getUpcomingMovie(): Observable<IMovie[]> {
-    return this.httpClient.get<IMovie[]>(`${this.URL}${endpoint.upcoming}`, {
+
+  getUpcomingMovie(): Observable<IRes> {
+    return this.httpClient.get<IRes>(`${this.URL}${endpoint.upcoming}`, {
       params: {
         api_key: this.api_key
       }
     });
   }
-  getOriginalsMovie(): Observable<IMovie[]> {
-    return this.httpClient.get<IMovie[]>(`${this.URL}${endpoint.originals}`, {
+
+  getOriginalsMovie(): Observable<IRes> {
+    return this.httpClient.get<IRes>(`${this.URL}${endpoint.originals}`, {
       params: {
         api_key: this.api_key
       }
     });
-  }getTrendingMovie(): Observable<IRes> {
+  }
+
+  getTrendingMovie(): Observable<IRes> {
     return this.httpClient.get<IRes>(`${this.URL}${endpoint.trending}`, {
       params: {
         api_key: this.api_key

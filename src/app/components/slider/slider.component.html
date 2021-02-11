@@ -1,0 +1,13 @@
+<div class="box">
+  <p>{{title}}</p>
+  <carousel [itemsPerSlide]="itemsPerSlide"
+            [singleSlideOffset]="singleSlideOffset"
+            [interval]="false"
+            [noWrap]="false"
+            style="outline: none;border: none">
+    <slide class="slider-img" *ngFor="let slide of movie;let index=index" style="width: 200px;">
+      <img [src]="[prefixImg+slide.poster_path]" alt="">
+    </slide>
+
+  </carousel>
+</div>
