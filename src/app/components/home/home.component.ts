@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {IRes} from '../../models/IRes';
 import {IMovie} from '../../models/IMovie';
 import {MoviesService} from '../../services/movies.service';
-import {DatePipe} from '@angular/common';
+import {IShows} from '../../models/IShows';
 
 @Component({
   selector: 'app-home',
@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
   upComing: IRes;
   topRated: IRes;
   popular: IRes;
-  originals: IRes;
+  originals: IShows;
   latest: IMovie;
   headerBGUrl: string;
   index = Math.abs(Math.ceil(Math.random() * (0 - 20)));
@@ -37,7 +37,7 @@ export class HomeComponent implements OnInit {
     this.moviesService.getUpcomingMovie().subscribe(value => this.upComing = value);
     this.moviesService.getTopRatedMovie().subscribe(value => this.topRated = value);
     this.moviesService.getPopularMovie().subscribe(value => this.popular = value);
-    this.moviesService.getOriginalsMovie().subscribe(value => this.originals = value);
+    this.moviesService.getOriginalsMovie(2).subscribe(value => this.originals = value);
   }
 
 }

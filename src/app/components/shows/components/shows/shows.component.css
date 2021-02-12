@@ -8,3 +8,8 @@
   text-align: center;
   padding-top: 60px;
 }
+.show_list{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}

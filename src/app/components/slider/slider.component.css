@@ -14,11 +14,9 @@ p{
 }
 .slider-img{
   cursor: pointer;
-  margin: 0 5px;
+  margin: 0 1px;
   width: 200px;
   overflow: hidden;
-
-
 }
 .slider-img img{
   display: block;

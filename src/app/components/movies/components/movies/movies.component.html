@@ -1,3 +1,28 @@
-<div class="movies">
-  work
+<h1 *ngIf="!movies"><img src="https://i.gifer.com/8p7m.gif" alt=""></h1>
+<div *ngIf="movies" class="movies"  [ngStyle]="{
+      'background-image' : 'linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.3)), url('+headerBGUrl+')'
+      }">
+<!--  <div class="movie_banner">-->
+<!--  </div>-->
+  <div class="nav_bar">
+    <form [formGroup]="form" (ngSubmit)="submit()">
+    <input [formControl]="title" type="text">
+      <button class="pagination_btn">search</button>
+    </form>
+  <a>
+    <button class="pagination_btn" [disabled]="this.movies.page===1"  (click)="nextPage(-1)">prev</button>
+    <button class="pagination_btn" [disabled]="this.movies.page===500" (click)="nextPage(1)">next</button>
+  </a>
+  </div>
+  <h1 *ngIf="movies.results.length===0"><img src="https://i.gifer.com/8p7m.gif" alt=""></h1>
+  <div class="movie_list">
+    <app-card *ngFor="let movie of movies.results" [card]="movie"></app-card>
+  </div>
+  <div class="pagination">
+    <button class="pagination_btn" [disabled]="this.movies.page===1"  (click)="firstPage()">first</button>
+    <button class="pagination_btn" [disabled]="this.movies.page===1"  (click)="nextPage(-1)">prev</button>
+    <a class="total_pages">{{movies.page}} of {{movies.total_pages}}</a>
+    <button class="pagination_btn" [disabled]="this.movies.page===500" (click)="nextPage(1)">next</button>
+    <button class="pagination_btn" [disabled]="this.movies.page===500" (click)="lastPage()">last</button>
+  </div>
 </div>

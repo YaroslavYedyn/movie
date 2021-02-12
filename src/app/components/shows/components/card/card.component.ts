@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {IMovie} from '../../models/IMovie';
+import {IShow} from '../../../../models/IShow';
 
 @Component({
   selector: 'app-card',
@@ -8,13 +8,14 @@ import {IMovie} from '../../models/IMovie';
 })
 export class CardComponent implements OnInit {
   @Input()
-  card: IMovie;
+  item: IShow;
   prefixImg = 'https://image.tmdb.org/t/p/original';
+
+
   constructor() {
   }
 
   ngOnInit(): void {
-    console.log(this.card);
   }
 
 }

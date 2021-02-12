@@ -5,6 +5,8 @@ import {MoviesService} from '../../../../services/movies.service';
 import {IMovie} from '../../../../models/IMovie';
 import {IVideo} from '../../../../models/IVideo';
 import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
+// @ts-ignore
+import backdrop from '../../../../../backdrop.jpg';
 
 @Component({
   selector: 'app-details',
@@ -34,7 +36,7 @@ export class DetailsComponent implements OnInit {
         this.movie = value;
         this.movie.backdrop_path ?
           this.headerBGUrl = 'https://image.tmdb.org/t/p/original' + this.movie.backdrop_path :
-          this.headerBGUrl = 'https://pixabay.com/get/g07703eac0292dd29eee467d69a360cfd0676626aececa1a1295c0c52eb0307d45c99410e2a29ae43d33babad615f8294_1920.jpg';
+          this.headerBGUrl = backdrop;
       }
     );
     // if (this.movie.video === true) {

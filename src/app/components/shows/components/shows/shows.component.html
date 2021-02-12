@@ -1,1 +1,6 @@
-<div class="shows">shows</div>
+<div class="shows">
+  <div class="show_banner"></div>
+  <div class="show_list">
+    <app-card *ngFor="let item of shows" [item]="item"></app-card>
+  </div>
+</div>

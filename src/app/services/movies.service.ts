@@ -5,6 +5,7 @@ import {Observable} from 'rxjs';
 import {IMovie} from '../models/IMovie';
 import {IRes} from '../models/IRes';
 import {IVideo} from '../models/IVideo';
+import {IShows} from '../models/IShows';
 
 const enum endpoint {
   latest = 'movie/latest',
@@ -14,8 +15,10 @@ const enum endpoint {
   upcoming = 'movie/upcoming',
   trending = 'trending/all/week?',
   originals = 'discover/tv',
+  movie = 'discover/movie',
   details = 'movie/',
-  video = '/videos'
+  video = '/videos',
+  search = 'search/movie'
 }
 
 @Injectable({
@@ -26,6 +29,24 @@ export class MoviesService {
   private api_key = environment.api;
 
   constructor(private httpClient: HttpClient) {
+  }
+
+  getAllMovie(pageParam): Observable<IRes> {
+    return this.httpClient.get<IRes>(`${this.URL}${endpoint.movie}`, {
+      params: {
+        api_key: this.api_key,
+        page: pageParam,
+      }
+    });
+  }
+
+  getSearchMovie(queryInput): Observable<IRes> {
+    return this.httpClient.get<IRes>(`${this.URL}${endpoint.search}`, {
+      params: {
+        api_key: this.api_key,
+        query: queryInput,
+      }
+    });
   }
 
   getLatestMovie(): Observable<IMovie> {
@@ -68,10 +89,11 @@ export class MoviesService {
     });
   }
 
-  getOriginalsMovie(): Observable<IRes> {
-    return this.httpClient.get<IRes>(`${this.URL}${endpoint.originals}`, {
+  getOriginalsMovie(pageNum): Observable<IShows> {
+    return this.httpClient.get<IShows>(`${this.URL}${endpoint.originals}`, {
       params: {
-        api_key: this.api_key
+        api_key: this.api_key,
+        page: pageNum
       }
     });
   }
