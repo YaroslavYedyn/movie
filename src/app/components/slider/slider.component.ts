@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {IMovie} from '../../models/IMovie';
 import {IRes} from '../../models/IRes';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-slider',
@@ -15,10 +16,16 @@ export class SliderComponent implements OnInit {
   singleSlideOffset = true;
 
 
-  constructor() {
+  constructor(private router: Router, private activatedRoute: ActivatedRoute) {
   }
 
   ngOnInit(): void {
   }
 
+  details(id): void {
+    this.router.navigate([`details/${id}`], {
+      relativeTo: this.activatedRoute,
+      state: id
+    });
+  }
 }

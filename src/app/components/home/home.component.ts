@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {IRes} from '../../models/IRes';
 import {IMovie} from '../../models/IMovie';
 import {MoviesService} from '../../services/movies.service';
+import {DatePipe} from '@angular/common';
 
 @Component({
   selector: 'app-home',
@@ -17,15 +18,19 @@ export class HomeComponent implements OnInit {
   originals: IRes;
   latest: IMovie;
   headerBGUrl: string;
+  index = Math.abs(Math.ceil(Math.random() * (0 - 20)));
 
 
   constructor(private moviesService: MoviesService) {
+    console.log(this.index);
+
+
   }
 
   ngOnInit(): void {
     this.moviesService.getTrendingMovie().subscribe(value => {
       this.trending = value;
-      this.headerBGUrl = 'https://image.tmdb.org/t/p/original' + this.trending.results[1].backdrop_path;
+      this.headerBGUrl = 'https://image.tmdb.org/t/p/original' + this.trending.results[this.index].backdrop_path;
 
     });
     this.moviesService.getNowPlayingMovie().subscribe(value => this.nowPlaying = value.results);

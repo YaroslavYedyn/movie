@@ -1,0 +1,10 @@
+.latest{
+  width: 100%;
+  height: 100vh;
+  background: orange;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-top: 60px;
+}

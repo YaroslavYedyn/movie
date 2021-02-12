@@ -9,6 +9,9 @@ const routes: Routes = [
     path: '', component: HomeComponent
   },
   {
+    path: 'details/:id', loadChildren: () => import('./components/details/details.module').then((m) => m.DetailsModule)
+  },
+  {
     path: 'shows', loadChildren: () => import('./components/shows/shows.module').then((m) => m.ShowsModule)
   },
   {

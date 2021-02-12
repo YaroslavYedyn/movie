@@ -12,7 +12,8 @@ const enum endpoint {
   top_rated = 'movie/top_rated',
   upcoming = 'movie/upcoming',
   trending = 'trending/all/week?',
-  originals = 'discover/tv'
+  originals = 'discover/tv',
+  details = 'movie/'
 }
 
 @Injectable({
@@ -75,6 +76,14 @@ export class MoviesService {
 
   getTrendingMovie(): Observable<IRes> {
     return this.httpClient.get<IRes>(`${this.URL}${endpoint.trending}`, {
+      params: {
+        api_key: this.api_key
+      }
+    });
+  }
+
+  getMovieByID(id): Observable<IMovie> {
+    return this.httpClient.get<IMovie>(`${this.URL}${endpoint.details}${id}`, {
       params: {
         api_key: this.api_key
       }

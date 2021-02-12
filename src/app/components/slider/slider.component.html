@@ -5,7 +5,11 @@
             [interval]="false"
             [noWrap]="false"
             style="outline: none;border: none">
-    <slide class="slider-img" *ngFor="let slide of movie;let index=index" style="width: 200px;">
+    <slide
+      class="slider-img"
+      *ngFor="let slide of movie;let index=index"
+      style="width: 200px;"
+      (click)="details(slide.id)">
       <img [src]="[prefixImg+slide.poster_path]" alt="">
     </slide>
 
