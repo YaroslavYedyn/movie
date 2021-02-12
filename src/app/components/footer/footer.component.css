@@ -2,9 +2,33 @@ footer{
   display: flex;
   justify-content: center;
   align-items: center;
+  background: #111111;
+  color: #fffffe;
   border-top: 1px solid #fffffe;
   left:0;
   bottom:0;
   height:80px;
   width:100%;
+}
+a, a:link, a:visited, a:focus, a:hover, a:active{
+  color:#fffffe;
+  text-decoration:none;
+}
+a{
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+}
+a:hover{
+  color: #d90909;
+}
+.logo_footer{
+  display: flex;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 600;
+}
+.sub-logo_footer{
+  color: #e41a1a;
+
 }

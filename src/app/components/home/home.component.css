@@ -46,28 +46,10 @@ h1 {
   align-items: center;
 }
 
-.banner_btn_play, .banner_btn_info {
-  height: 40px;
-  font-size: 16px;
-  font-weight: 700;
-  border-radius: 5px;
-  border: none;
-}
-
-.banner_btn_play {
-  width: 80px;
-  background: #fffffe;
-}
-
-.banner_btn_info {
-  margin-left: 30px;
-  width: 100px;
-  background: rgba(255, 255, 255, 0.69);
-}
-
 .body {
   overflow-y: hidden;
   padding: 5px;
   position: relative;
   bottom: 120px;
 }
+

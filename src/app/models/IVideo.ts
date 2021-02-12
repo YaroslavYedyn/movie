@@ -1,0 +1,14 @@
+export interface IVideo {
+  id: number;
+  results: [
+    {
+      id: string,
+      key: string,
+      name: string,
+      site: string,
+      size: number,
+      type: string,
+    }
+  ];
+}
+

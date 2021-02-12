@@ -1,5 +1,35 @@
-<div class="details" [ngStyle]="{
+<h1 *ngIf="!movie"><img src="https://i.gifer.com/8p7m.gif" alt=""></h1>
+<div *ngIf="movie" [ngStyle]="{
       'background-image' : 'linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.3)), url('+headerBGUrl+')'
-      }">
-  work
+      }" class="details">
+  <div class="details_info">
+    <div class="details_text">
+      <p class="details_title">{{movie && movie.title}}</p>
+      <p class="details_body">{{movie && movie.overview}}</p>
+    </div>
+    <nav class="details_nav">
+      <button class="details_btn_play" (click)="play()">play</button>
+      <button class="details_btn_list">my list</button>
+    </nav>
+    <p class="details_rating">Rating:{{movie.vote_average}}</p>
+    <p class="details_genres"><a>Genres:</a></p>
+    <p></p>
+  </div>
+  <div class="details_video">
+    <iframe *ngIf="playStatus"
+      [src]="videoUrl"
+      width="96%"
+      height="90%"
+      frameborder="0"
+            autofocus
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen></iframe>
+    <iframe class="iframe" *ngIf="!playStatus"
+            src="https://www.youtube.com/embed/sog3WGznvAA"
+            width="96%"
+            height="90%"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+  </div>
 </div>

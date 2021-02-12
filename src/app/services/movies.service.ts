@@ -4,6 +4,7 @@ import {environment} from '../../environments/environment';
 import {Observable} from 'rxjs';
 import {IMovie} from '../models/IMovie';
 import {IRes} from '../models/IRes';
+import {IVideo} from '../models/IVideo';
 
 const enum endpoint {
   latest = 'movie/latest',
@@ -13,7 +14,8 @@ const enum endpoint {
   upcoming = 'movie/upcoming',
   trending = 'trending/all/week?',
   originals = 'discover/tv',
-  details = 'movie/'
+  details = 'movie/',
+  video = '/videos'
 }
 
 @Injectable({
@@ -84,6 +86,15 @@ export class MoviesService {
 
   getMovieByID(id): Observable<IMovie> {
     return this.httpClient.get<IMovie>(`${this.URL}${endpoint.details}${id}`, {
+      params: {
+        api_key: this.api_key
+      }
+    });
+  }
+
+  getVideoMovie(id): Observable<IVideo> {
+    console.log(id, 'video id ');
+    return this.httpClient.get<IVideo>(`${this.URL}${endpoint.details}${id}${endpoint.video}`, {
       params: {
         api_key: this.api_key
       }
