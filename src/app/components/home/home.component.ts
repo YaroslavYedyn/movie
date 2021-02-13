@@ -3,6 +3,7 @@ import {IRes} from '../../models/IRes';
 import {IMovie} from '../../models/IMovie';
 import {MoviesService} from '../../services/movies.service';
 import {IShows} from '../../models/IShows';
+import {UserService} from '../../services/user.service';
 
 @Component({
   selector: 'app-home',
@@ -19,11 +20,10 @@ export class HomeComponent implements OnInit {
   latest: IMovie;
   headerBGUrl: string;
   index = Math.abs(Math.ceil(Math.random() * (0 - 20)));
+  request_token: string;
 
 
-  constructor(private moviesService: MoviesService) {
-    console.log(this.index);
-
+  constructor(private moviesService: MoviesService, private userService: UserService) {
 
   }
 
@@ -38,6 +38,12 @@ export class HomeComponent implements OnInit {
     this.moviesService.getTopRatedMovie().subscribe(value => this.topRated = value);
     this.moviesService.getPopularMovie().subscribe(value => this.popular = value);
     this.moviesService.getOriginalsMovie(2).subscribe(value => this.originals = value);
+    this.userService.token().subscribe(value => this.request_token = value.request_token);
+
   }
 
+  token(): void {
+    console.log(this.request_token);
+    this.userService.auth(this.request_token).subscribe(value => console.log(value));
+  }
 }

@@ -5,9 +5,9 @@
       'background-image' : 'linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.3)), url('+headerBGUrl+')'
       }">
       <div class='banner__title'>
-        <h1>{{trending&&trending.results[this.index].title}}</h1>
+        <h1>{{trending && trending.results[this.index].title}}</h1>
         <div class="header__button">
-          <button class="banner_btn_play">Play</button>
+          <button class="banner_btn_play" (click)="token()">Play</button>
           <button class="banner_btn_info">More Info</button>
         </div>
       </div>

@@ -11,6 +11,8 @@ import {HomeComponent} from './components/home/home.component';
 import {SliderComponent} from './components/slider/slider.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {CarouselModule} from 'ngx-bootstrap/carousel';
+import {AuthModule} from '@auth0/auth0-angular';
+import {environment} from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -27,10 +29,12 @@ import {CarouselModule} from 'ngx-bootstrap/carousel';
     HttpClientModule,
     NgbModule,
     CarouselModule,
+    AuthModule.forRoot({
+      ...environment.auth
+    })
   ],
   providers: [],
-  exports: [
-  ],
+  exports: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {
