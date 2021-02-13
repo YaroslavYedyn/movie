@@ -12,7 +12,6 @@ import {FormControl, FormGroup} from '@angular/forms';
 export class MoviesComponent implements OnInit {
   movies: IRes;
   prefixImg = 'https://image.tmdb.org/t/p/original';
-  itemsPerSlide = 3;
   headerBGUrl: string;
   title = new FormControl('', []);
   form = new FormGroup({

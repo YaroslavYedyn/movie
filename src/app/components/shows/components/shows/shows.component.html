@@ -1,6 +1,23 @@
 <div class="shows">
-  <div class="show_banner"></div>
+  <div class="nav_bar" style="width: 52.6%;">
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <input [formControl]="title" type="text">
+      <button class="pagination_btn">search</button>
+    </form>
+    <a>
+      <button class="pagination_btn" [disabled]="this.response.page===1"  (click)="nextPage(-1)">prev</button>
+      <button class="pagination_btn" [disabled]="this.response.page===500" (click)="nextPage(1)">next</button>
+    </a>
+  </div>
+  <h1 *ngIf="response.results.length===0"><img src="https://i.gifer.com/8p7m.gif" alt=""></h1>
   <div class="show_list">
     <app-card *ngFor="let item of shows" [item]="item"></app-card>
+  </div>
+  <div class="pagination">
+    <button class="pagination_btn" [disabled]="this.response.page===1"  (click)="firstPage()">first</button>
+    <button class="pagination_btn" [disabled]="this.response.page===1"  (click)="nextPage(-1)">prev</button>
+    <a class="total_pages">{{response.page}} of {{response.total_pages}}</a>
+    <button class="pagination_btn" [disabled]="this.response.page===500" (click)="nextPage(1)">next</button>
+    <button class="pagination_btn" [disabled]="this.response.page===500" (click)="lastPage()">last</button>
   </div>
 </div>

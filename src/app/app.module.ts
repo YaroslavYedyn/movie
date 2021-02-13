@@ -18,7 +18,7 @@ import {CarouselModule} from 'ngx-bootstrap/carousel';
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    SliderComponent
+    SliderComponent,
   ],
   imports: [
     BrowserModule,

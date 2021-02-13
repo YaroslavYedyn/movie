@@ -18,7 +18,9 @@ const enum endpoint {
   movie = 'discover/movie',
   details = 'movie/',
   video = '/videos',
-  search = 'search/movie'
+  search_movie = 'search/movie',
+  search_show = 'search/tv'
+
 }
 
 @Injectable({
@@ -41,7 +43,16 @@ export class MoviesService {
   }
 
   getSearchMovie(queryInput): Observable<IRes> {
-    return this.httpClient.get<IRes>(`${this.URL}${endpoint.search}`, {
+    return this.httpClient.get<IRes>(`${this.URL}${endpoint.search_movie}`, {
+      params: {
+        api_key: this.api_key,
+        query: queryInput,
+      }
+    });
+  }
+
+  getSearchShow(queryInput): Observable<IShows> {
+    return this.httpClient.get<IShows>(`${this.URL}${endpoint.search_show}`, {
       params: {
         api_key: this.api_key,
         query: queryInput,
