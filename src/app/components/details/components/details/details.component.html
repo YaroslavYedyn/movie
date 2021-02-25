@@ -9,21 +9,27 @@
     </div>
     <nav class="details_nav">
       <button class="details_btn_play" (click)="play()">play</button>
-      <button class="details_btn_list">my list</button>
+      <button class="details_btn_list" (click)="list()">my list</button>
     </nav>
-    <p class="details_rating">Rating:{{movie.vote_average}}</p>
-    <p class="details_genres"><a>Genres:</a></p>
-    <p></p>
+    <p class="details_subtitle">Rating:&ensp;<a>{{movie.vote_average}}</a></p>
+    <p class="details_subtitle">Genres:&ensp;<a *ngFor="let g of movie.genres">{{g.name}},&nbsp;</a></p>
+    <div class="details_subtitle">Companies:
+      <div *ngIf="movie.production_companies.length>1">
+        <div class="details_companies" *ngFor="let c of movie.production_companies"><a>&ensp;{{c.name}},</a></div>
+      </div>
+      <div class="details_companies"
+           *ngIf="movie.production_companies.length===1"> {{movie.production_companies[0].name}}</div>
+    </div>
   </div>
   <div class="details_video">
     <iframe *ngIf="playStatus"
-      [src]="videoUrl"
-      width="96%"
-      height="90%"
-      frameborder="0"
+            [src]="videoUrl"
+            width="96%"
+            height="90%"
+            frameborder="0"
             autofocus
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen></iframe>
+            allowfullscreen></iframe>
     <iframe class="iframe" *ngIf="!playStatus"
             src="https://www.youtube.com/embed/sog3WGznvAA"
             width="96%"

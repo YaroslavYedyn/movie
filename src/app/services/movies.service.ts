@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../environments/environment';
-import {Observable} from 'rxjs';
+import {BehaviorSubject, Observable} from 'rxjs';
 import {IMovie} from '../models/IMovie';
 import {IRes} from '../models/IRes';
 import {IVideo} from '../models/IVideo';
@@ -27,6 +27,7 @@ const enum endpoint {
   providedIn: 'root'
 })
 export class MoviesService {
+  private cartState = new BehaviorSubject<string>(JSON.parse(localStorage.getItem('localCart')));
   private URL = 'https://api.themoviedb.org/3/';
   private api_key = environment.api;
 
@@ -132,5 +133,14 @@ export class MoviesService {
         api_key: this.api_key
       }
     });
+  }
+
+  // localStorage
+  getState(): BehaviorSubject<string> {
+    return this.cartState;
+  }
+
+  setNewState(): void {
+    this.cartState.next(JSON.parse(localStorage.getItem('movies')));
   }
 }

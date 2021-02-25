@@ -12,7 +12,7 @@ export interface IMovie {
   overview: string;
   popularity: number;
   poster_path: string;
-  production_companies: any;
+  production_companies: [{ id: number; logo_path: string; name: string; origin_country: string }];
   production_countries: any;
   release_date: string;
   revenue: number;

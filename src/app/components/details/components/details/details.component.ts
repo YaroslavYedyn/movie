@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {IdModels} from '../models/Id';
+import {IdModels} from '../../models/Id';
 import {MoviesService} from '../../../../services/movies.service';
 import {IMovie} from '../../../../models/IMovie';
 import {IVideo} from '../../../../models/IVideo';
@@ -16,6 +16,8 @@ import backdrop from '../../../../../backdrop.jpg';
 export class DetailsComponent implements OnInit {
   id: IdModels;
   movie: IMovie;
+  localMovie: any = [];
+  movieCount = 0;
   headerBGUrl: string;
   video: IVideo;
   playStatus = false;
@@ -39,11 +41,6 @@ export class DetailsComponent implements OnInit {
           this.headerBGUrl = backdrop;
       }
     );
-    // if (this.movie.video === true) {
-    //   this.moviesService.getVideoMovie(this.id).subscribe(value => this.videoKey = value);
-    //   console.log(this.videoKey);
-    // }
-
   }
 
   play(): void {
@@ -54,5 +51,23 @@ export class DetailsComponent implements OnInit {
     this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.dangerousVideoUrl);
 
 
+  }
+
+  list(): void {
+    const movie = this.movie;
+    const id = this.movie.id;
+    const list = [];
+    const localList = JSON.parse(localStorage.getItem('list'));
+    if (localList ? (localList.length > 0) : false) {
+      if (localList.every(value => value.id !== id)) {
+        console.log('if');
+        localList.push(this.movie);
+        localStorage.setItem('list', JSON.stringify(localList));
+      }
+    } else {
+      console.log('else');
+      list.push(movie);
+      localStorage.setItem('list', JSON.stringify(list));
+    }
   }
 }

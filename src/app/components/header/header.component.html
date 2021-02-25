@@ -6,9 +6,8 @@
       <a routerLink="shows">TV Shows</a>
       <a routerLink="movies">Movies</a>
       <a routerLink="latest">Latest</a>
-      <a>My List</a>
-      <button *ngIf="auth.isAuthenticated$" class="btn" (click)="auth.loginWithPopup()">Login</button>
-      <button *ngIf="auth.isAuthenticated$" class="btn" (click)="auth.logout()">Logout</button>
+      <a routerLink="list">My List</a>
+      <button class="btn">Login</button>
     </nav>
   </div>
 </header>

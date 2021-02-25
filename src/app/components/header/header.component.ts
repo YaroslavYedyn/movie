@@ -1,5 +1,4 @@
 import {Component, ElementRef, HostListener, OnInit, ViewChild} from '@angular/core';
-import { AuthService } from '@auth0/auth0-angular';
 
 @Component({
   selector: 'app-header',
@@ -10,11 +9,10 @@ export class HeaderComponent implements OnInit {
   sticky = false;
   @ViewChild('stickHeader') header: ElementRef;
 
-  constructor(public auth: AuthService) {
+  constructor() {
   }
 
   ngOnInit(): void {
-    console.log(this.auth.isAuthenticated$);
   }
 
   @HostListener('window:scroll', ['$event'])
@@ -28,5 +26,4 @@ export class HeaderComponent implements OnInit {
       this.sticky = false;
     }
   }
-
 }

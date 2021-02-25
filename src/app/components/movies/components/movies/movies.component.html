@@ -2,8 +2,6 @@
 <div *ngIf="movies" class="movies"  [ngStyle]="{
       'background-image' : 'linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.3)), url('+headerBGUrl+')'
       }">
-<!--  <div class="movie_banner">-->
-<!--  </div>-->
   <div class="nav_bar">
     <form [formGroup]="form" (ngSubmit)="submit()">
     <input [formControl]="title" type="text">
